@@ -2,7 +2,7 @@
 
 namespace BaseLibrary.DTOs
 {
-    public  class Login : AccountBase
+    public  class LoginDTO : AccountBase
     {
     }
 }

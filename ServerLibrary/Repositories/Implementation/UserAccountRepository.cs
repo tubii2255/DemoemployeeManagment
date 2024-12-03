@@ -57,7 +57,7 @@ namespace ServerLibrary.Repositories.Implementation
             return new GeneralResponse(true, "Account created");
         }
         
-        public async Task<LoginResponse> SignInAsync (Login user)
+        public async Task<LoginResponse> SignInAsync (LoginDTO user)
         {
             if (user is null) return new LoginResponse(false, "model is empty");
 
@@ -107,7 +107,7 @@ namespace ServerLibrary.Repositories.Implementation
                 issuer: config.Value.Issuer,
                 audience: config.Value.Audience,
                 claims: userClaims,
-                expires: DateTime.Now.AddDays(1),
+                expires: DateTime.Now.AddSeconds(2),
                 signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
